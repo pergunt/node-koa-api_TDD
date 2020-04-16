@@ -1,16 +1,24 @@
 {
   "name": "node-koa-api",
   "version": "0.0.0",
-  "private": true,
   "scripts": {
     "start": "node ./src/server/index.js",
     "test": "./node_modules/mocha/bin/_mocha"
   },
   "keywords": [],
-  "author": "Michael Herman",
+  "author": "Ivan Roskoshnyi",
   "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^9.0.0",
+    "knex": "^0.20.15",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.3.0",
+    "pg": "^8.0.2"
+  },
   "devDependencies": {
-    "chai": "4.1.1",
-    "mocha": "3.5.0"
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^7.1.1",
+    "sinon": "^9.0.2"
   }
 }

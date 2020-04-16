@@ -15,7 +15,7 @@
     "$": false,
     "confirm": false
   },
-  "esnext": true,
+  "esversion": 8,
   "node" : true,
   "browser" : true,
   "boss" : false,
@@ -34,7 +34,6 @@
   "nomen": false,
   "onevar": true,
   "plusplus": false,
-  "regexp": false,
   "undef": true,
   "sub": true,
   "strict": false,
