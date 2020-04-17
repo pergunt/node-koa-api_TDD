@@ -3,35 +3,32 @@ exports.init = app => app.use(async (ctx, next) => {
   try {
     await next();
   } catch (e) {
+    console.log('throw---err--1', e.message);
     ctx.set('X-Content-Type-Options', 'nosniff');
 
-    const preferredType = ctx.accepts('html', 'json');
+    const preferredType = ctx.accepts('json', 'html');
 
     if (e.status) {
       ctx.status = e.status;
 
       // could use template methods to render error page
-      if (preferredType == 'json') {
+      if (preferredType === 'json') {
         ctx.body = {
-          error: e.message
+          message: e.message || 'Sorry, an error has occurred.',
+          status: 'error'
         };
       } else {
         ctx.body = e.message;
       }
 
-    } else if (e.name == 'ValidationError') {
-
+    } else if (e.name === 'error') {
+      // knex error
       ctx.status = 400;
-
       const errors = {};
-
-      for (let field in e.errors) {
-        errors[field] = e.errors[field].message;
-      }
-
       if (preferredType == 'json') {
         ctx.body = {
-          errors: errors
+          message: e.message,
+          status: 'error'
         };
       } else {
         ctx.body = "Некорректные данные.";
