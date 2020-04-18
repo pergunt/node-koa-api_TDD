@@ -3,7 +3,6 @@ exports.init = app => app.use(async (ctx, next) => {
   try {
     await next();
   } catch (e) {
-    console.log('throw---err--1', e.message);
     ctx.set('X-Content-Type-Options', 'nosniff');
 
     const preferredType = ctx.accepts('json', 'html');

@@ -11,8 +11,8 @@ const knex = require('../src/server/db/connection');
 describe('routes : movies', () => {
   beforeEach(() => {
     return knex.migrate.rollback()
-      .then(() => { return knex.migrate.latest(); })
-      .then(() => { return knex.seed.run(); });
+    .then(() => { return knex.migrate.latest(); })
+    .then(() => { return knex.seed.run(); });
   });
   afterEach(() => {
     return knex.migrate.rollback();
@@ -117,7 +117,6 @@ describe('routes : movies', () => {
           name: 'Titanic'
         })
         .end((err, res) => {
-          console.log(res.body)
           // there should be a 400 status code
           res.status.should.equal(400);
           // the response should be JSON

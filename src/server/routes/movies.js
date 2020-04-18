@@ -20,7 +20,6 @@ router.get(BASE_URL, async ctx => {
       };
     } else {
       ctx.status = 404;
-      // ctx.set('Content-Type', 'application/json');
       ctx.throw(404, 'That movie does not exist.');
     }
   })
