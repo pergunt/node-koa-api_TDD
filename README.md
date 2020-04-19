@@ -24,3 +24,13 @@ Project base...
 ### Write full integration tests to call an external service during the test run
 ### Refactor integration tests to unit tests, stubbing out the external HTTP requests
 ### Stub each of the CRUD functions from an external service
+-------------
+### Discuss the overall client/server authentication workflow
+### Add Passport and passport-local to a Koa app
+### Configure bcrypt.js for salting and hashing passwords
+### Practice test driven development
+### Register and authenticate a user
+### Utilize sessions to store user information via koa-session
+### Explain why you may want to use an external session store to store session data
+### Set up an external session store with Redis
+### Render HTML pages via server-side templating
