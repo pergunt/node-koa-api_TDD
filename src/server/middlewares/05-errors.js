@@ -20,7 +20,7 @@ exports.init = app => app.use(async (ctx, next) => {
         ctx.body = e.message;
       }
 
-    } else if (e.name === 'error') {
+    } else if (e.name === 'error') { // PG error
       // knex error
       ctx.status = 400;
       const errors = {};
