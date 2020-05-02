@@ -8,12 +8,10 @@ function comparePass(userPassword, databasePassword) {
 }
 
 passport.serializeUser((user, done) => {
-  console.log('---serializeUser--');
   done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
-  console.log('----deserialize------');
   return knex('users')
     .where({id})
     .first()
@@ -23,6 +21,9 @@ passport.deserializeUser((id, done) => {
     .catch(err => done(err, null));
 });
 
+const options = {
+
+};
 /**
  Does the username exist?
  No? then false is returned
@@ -31,9 +32,6 @@ passport.deserializeUser((id, done) => {
  Yes? The user object is returned and then the id is serialized to the session
  * @type {{}}
  */
-const options = {
-
-};
 passport.use(new LocalStrategy(options, (username, password, done) => {
   knex('users')
     .where({ username })

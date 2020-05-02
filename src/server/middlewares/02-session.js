@@ -1,13 +1,8 @@
 const session = require('koa-session');
-const RedisStore = require('koa-redis');
+const store = require('../session');
 
 exports.init = app => {
   // sessions
   app.keys = ['super-secret-key'];
-  app.use(session(app));
-  /*
-    app.use(session({
-    store: new RedisStore()
-  }, app));
-   */
+  app.use(session({store}, app));
 };
