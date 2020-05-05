@@ -1,11 +1,10 @@
-const Router = require('@koa/router');
-const passport = require('koa-passport');
-const fs = require('fs');
-const queries = require('../db/queries/users');
-const helpers = require('./_helpers');
+import Router from '@koa/router';
+import passport from 'koa-passport';
+import fs from 'fs';
+import queries from '../db/queries/users';
+import helpers from './_helpers';
+
 const router = new Router();
-
-
 router
   .get('/auth/register', async ctx => {
     ctx.type = 'html';

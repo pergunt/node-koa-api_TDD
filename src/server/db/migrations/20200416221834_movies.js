@@ -5,6 +5,7 @@ exports.up = (knex, Promise) => {
     table.string('genre').notNullable();
     table.integer('rating').notNullable();
     table.boolean('explicit').notNullable();
+    table.timestamp('createdAt').defaultTo(knex.fn.now());
   });
 };
 

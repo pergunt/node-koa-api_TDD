@@ -1,16 +1,17 @@
-const fs = require('fs');
-const path = require('path');
-const Koa = require('koa');
+import fs from 'fs';
+import path from 'path';
+import Koa from 'koa';
 
-const indexRoutes = require('./routes/index');
-const movieRoutes = require('./routes/movies');
-const authRoutes = require('./routes/auth');
+import indexRoutes from './routes/index';
+import movieRoutes from './routes/movies';
+import authRoutes from './routes/auth';
+
+import {ApolloServer} from 'apollo-server-koa';
+import typeDefs from './graphql/typeDefs';
+import resolvers from './graphql/resolvers';
+import {UpperCaseDirective} from './graphql/directives';
 
 const app = new Koa();
-const {ApolloServer} = require('apollo-server-koa');
-const typeDefs = require('./graphql/typeDefs');
-const resolvers = require('./graphql/resolvers');
-const {UpperCaseDirective} = require('./graphql/directives');
 
 const handlers = fs.readdirSync(path.join(__dirname, 'middlewares')).sort();
 handlers.forEach(handler => require('./middlewares/' + handler).init(app));
@@ -26,7 +27,6 @@ const server = new ApolloServer({
     upper: UpperCaseDirective
   }
 });
-
 server.applyMiddleware({ app });
 
 const PORT = process.env.PORT || 1337;

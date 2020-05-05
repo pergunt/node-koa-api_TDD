@@ -1,7 +1,7 @@
-const passport = require('koa-passport');
-const knex = require('./db/connection');
-const LocalStrategy = require('passport-local').Strategy;
-const bcrypt = require('bcrypt');
+import passport from 'koa-passport';
+import knex from './db/connection';
+import {Strategy as LocalStrategy} from 'passport-local';
+import bcrypt from 'bcrypt';
 
 function comparePass(userPassword, databasePassword) {
   return bcrypt.compareSync(userPassword, databasePassword);

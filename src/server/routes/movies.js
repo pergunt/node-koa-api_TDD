@@ -1,5 +1,5 @@
-const Router = require('@koa/router');
-const queries = require('../db/queries/movies');
+import Router from '@koa/router';
+import queries from '../db/queries/movies';
 
 const router = new Router();
 const BASE_URL = `/api/v1/movies`;

@@ -1,6 +1,7 @@
-const {gql} = require('apollo-server-koa');
+import {gql} from 'apollo-server-koa';
 
 const schema = gql`
+    scalar Date
     directive @upper(
         capitalize: Boolean = true
     ) on FIELD_DEFINITION
@@ -13,9 +14,10 @@ const schema = gql`
         genre: String
         rating: Int
         explicit: Boolean
+        createdAt: Date
     }
     type Query {
-        getMovies(id: Int): [Movie]
+        getMovies(id: Int): [Movie] 
     }
 `;
 module.exports = schema;

@@ -1,5 +1,5 @@
-const {SchemaDirectiveVisitor} = require('apollo-server-koa');
-const { defaultFieldResolver } = require('graphql');
+import {SchemaDirectiveVisitor} from 'apollo-server-koa';
+import {defaultFieldResolver} from 'graphql';
 
 class UpperCaseDirective extends SchemaDirectiveVisitor{
   visitFieldDefinition(field) {

@@ -1,4 +1,4 @@
-const knex = require('../connection');
+import knex from '../connection';
 
 function getAllMovies() {
   return knex('movies')

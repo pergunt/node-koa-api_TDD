@@ -1,5 +1,5 @@
-const knex = require('../connection');
-const bcrypt = require('bcrypt');
+import knex from '../connection';
+import bcrypt from 'bcrypt';
 
 function addUser(user) {
   const salt = bcrypt.genSaltSync();

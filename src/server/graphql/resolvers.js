@@ -1,6 +1,8 @@
-const queries = require('../db/queries/movies');
+import queries from '../db/queries/movies';
+import Date from './scalars';
 
 const resolvers = {
+  Date,
   Query: {
     getMovies: async (_, {id}) => {
       let movie;
@@ -13,4 +15,4 @@ const resolvers = {
     }
   }
 };
-module.exports = resolvers;
+export default resolvers;

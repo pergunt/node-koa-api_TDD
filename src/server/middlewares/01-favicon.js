@@ -1,5 +1,4 @@
-
 // Usually served by Nginx
-const favicon = require('koa-favicon');
+import favicon from 'koa-favicon';
 
 exports.init = app => app.use(favicon());

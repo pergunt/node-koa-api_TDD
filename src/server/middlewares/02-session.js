@@ -1,5 +1,5 @@
-const session = require('koa-session');
-const store = require('../session');
+import session from 'koa-session';
+import store from '../session';
 
 exports.init = app => {
   // sessions
