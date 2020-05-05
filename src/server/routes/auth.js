@@ -3,8 +3,8 @@ const passport = require('koa-passport');
 const fs = require('fs');
 const queries = require('../db/queries/users');
 const helpers = require('./_helpers');
-
 const router = new Router();
+
 
 router
   .get('/auth/register', async ctx => {
